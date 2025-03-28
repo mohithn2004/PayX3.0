@@ -1,0 +1,144 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode */
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 255 90% 45%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 214 32% 91%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --brand-accent : oklch(0.968 0.007 247.896);
+
+    --accent: 261 84% 58%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 255 90% 45%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    /* Dark mode */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 255 90% 55%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --brand-accent : oklch(0.372 0.044 257.287);
+
+    --accent: 261 84% 68%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 255 90% 55%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased transition-colors duration-300;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-sm dark:bg-black/30 dark:border-white/10;
+  }
+
+  .subtle-glass {
+    @apply bg-white/40 backdrop-blur-sm border border-white/10 shadow-sm dark:bg-black/20;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .scroll-hidden::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scroll-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Cool gradient backgrounds */
+  .cool-gradient-1 {
+    @apply bg-gradient-to-br from-primary/10 to-accent/10;
+  }
+  
+  .cool-gradient-2 {
+    @apply bg-gradient-to-tr from-crypto-blue/10 to-crypto-purple/10;
+  }
+  
+  .cool-gradient-3 {
+    @apply bg-gradient-to-br from-crypto-teal/10 to-crypto-blue/10;
+  }
+}
+
+@layer components {
+  .crypto-card {
+    @apply bg-card rounded-2xl shadow-sm p-6 border border-gray-100 dark:border-gray-800 transition-all duration-300;
+  }
+
+  .button-primary {
+    @apply bg-crypto-blue text-white font-medium py-3 px-6 rounded-full shadow-sm transition-all duration-200 hover:shadow-md hover:bg-opacity-90 active:scale-[0.98] dark:bg-opacity-90 dark:hover:bg-opacity-100;
+  }
+
+  .button-secondary {
+    @apply bg-crypto-muted text-crypto-dark font-medium py-3 px-6 rounded-full shadow-sm transition-all duration-200 hover:shadow-md hover:bg-opacity-90 active:scale-[0.98] dark:bg-gray-800 dark:text-white dark:border dark:border-gray-700;
+  }
+
+  .input-field {
+    @apply bg-crypto-muted border-0 rounded-xl py-3 px-4 text-crypto-dark focus:ring-2 focus:ring-crypto-blue/20 transition-all duration-200 dark:bg-gray-800 dark:text-white dark:focus:ring-crypto-blue/40;
+  }
+}
+
+/* Fix for animation issues - make elements visible by default */
+.animate-fade-in {
+  opacity: 1 !important;
+}
+
+.animate-slide-up {
+  opacity: 1 !important;
+}
